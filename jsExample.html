@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Example.css">
+</head>
+<body>
+    <img src="/image/Register - Login.png" alt="1">
+    <img src="/image/다운로드.jpg" alt="2">
+
+    <button>Change user</button>
+    <h1></h1>
+    <script>
+        const myImage = document.querySelector("img");
+
+myImage.onclick = function() {
+    const mySrc = myImage.getAttribute("src");
+    if(mySrc === "/image/Register - Login.png"){
+        myImage.setAttribute('src','/image/다운로드.jpg');
+    } else {
+        myImage.setAttribute('src','/image/Register - Login.png');
+    }
+};
+
+// Adding a personalized welcome message
+
+// 변수 두개를 만들어서 querySelector을 이용하여 html 속성을 불러온다.
+let myButton = document.querySelector("button");
+let myHeading = document.querySelector("h1");
+
+myButton.onclick= function() {
+    setUserName();
+};
+
+// 함수를 하나 만든다. 
+function setUserName() {
+    //변수 myName에 Please enter your name을 출력할 것을 할당한다.
+    //const 형으로 지정한 이유는 값이 상수이기 때문이다.
+    const myName = prompt("Please enter your name.");
+    //localStorage는 웹 스토리지 5MB 정도?
+    localStorage.setItem("name", myName);
+    myHeading.textContent = `Mozilla is cool, ${myName}`;
+}
+    </script>
+</body>
+</html>
